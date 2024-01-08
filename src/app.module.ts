@@ -4,6 +4,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import Joi from '@hapi/joi';
 import { DatabaseModule } from './db/database.module';
 import { JwtModule } from '@nestjs/jwt';
+import { APP_FILTER } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -33,5 +34,6 @@ import { JwtModule } from '@nestjs/jwt';
     }),
   ],
   controllers: [],
+  providers: [],
 })
 export class AppModule {}
