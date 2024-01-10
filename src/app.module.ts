@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { PostsModule } from './posts/posts.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import Joi from '@hapi/joi';
+import * as Joi from '@hapi/joi';
 import { DatabaseModule } from './db/database.module';
 import { JwtModule } from '@nestjs/jwt';
-import { APP_FILTER } from '@nestjs/core';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { UsersModule } from './user/users.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -32,6 +34,9 @@ import { APP_FILTER } from '@nestjs/core';
         },
       }),
     }),
+    AuthenticationModule,
+    UsersModule,
+    CategoriesModule,
   ],
   controllers: [],
   providers: [],
