@@ -1,6 +1,6 @@
 import { UsersService } from '../user/users.service';
 import * as bcrypt from 'bcrypt';
-import { PostgresErrorCode } from 'src/db/postgresErrorCodes.enum';
+import { PostgresErrorCode } from '../db/postgresErrorCodes.enum';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';

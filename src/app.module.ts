@@ -7,6 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { UsersModule } from './user/users.module';
 import { CategoriesModule } from './categories/categories.module';
+import { DataSource } from 'typeorm';
 
 @Module({
   imports: [
@@ -41,4 +42,6 @@ import { CategoriesModule } from './categories/categories.module';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {}
+}
