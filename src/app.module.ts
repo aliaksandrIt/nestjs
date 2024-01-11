@@ -21,17 +21,21 @@ import { DataSource } from 'typeorm';
         POSTGRES_PASSWORD: Joi.string().required(),
         POSTGRES_DB: Joi.string().required(),
         PORT: Joi.number(),
-        JWT_SECRET: Joi.string().required(),
-        JWT_EXPIRATION_TIME: Joi.string().required(),
+        JWT_ACCESS_TOKEN_SECRET: Joi.string().required(),
+        JWT_ACCESS_TOKEN_EXPIRATION_TIME: Joi.string().required(),
+        JWT_REFRESH_TOKEN_SECRET: Joi.string().required(),
+        JWT_REFRESH_TOKEN_EXPIRATION_TIME: Joi.string().required(),
       }),
     }),
     JwtModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
-        secret: configService.get('JWT_SECRET'),
+        secret: configService.get('JWT_ACCESS_TOKEN_SECRET'),
         signOptions: {
-          expiresIn: `${configService.get('JWT_EXPIRATION_TIME')}s`,
+          expiresIn: `${configService.get(
+            'JWT_ACCESS_TOKEN_EXPIRATION_TIME',
+          )}s`,
         },
       }),
     }),
