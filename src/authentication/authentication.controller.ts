@@ -8,13 +8,12 @@ import {
   Res,
   Get,
 } from '@nestjs/common';
-import { Response } from 'express';
 import { AuthenticationService } from './authentication.service';
 import { LocalAuthenticationGuard } from './localAuthentication.guard';
 import RequestWithUser from './requestWithUser.interface';
 import JwtAuthenticationGuard from './jwt-authentication.guard';
 import RegisterDto from './dto/register.dto';
-import { UsersService } from 'src/user/users.service';
+import { UsersService } from '../user/users.service';
 import JwtRefreshGuard from './jwt-refresh.guard';
 
 @Controller('authentication')
@@ -33,6 +32,7 @@ export class AuthenticationController {
   @UseGuards(LocalAuthenticationGuard)
   @Post('log-in')
   async logIn(@Req() request: RequestWithUser) {
+    console.log(123);
     const { user } = request;
 
     const accessTokenCookie =

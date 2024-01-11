@@ -20,7 +20,6 @@ import User from '../core/entities/user.entity';
         database: configService.get('POSTGRES_DB'),
         entities: [__dirname + '/../core/entities/*.entity{.ts,.js}'],
         autoLoadEntities: true,
-        synchronize: true,
       }),
     }),
   ],

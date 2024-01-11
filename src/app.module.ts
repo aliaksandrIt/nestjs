@@ -8,9 +8,11 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { UsersModule } from './user/users.module';
 import { CategoriesModule } from './categories/categories.module';
 import { DataSource } from 'typeorm';
+import { SubscribersModule } from './subscribers/subscribers.module';
 
 @Module({
   imports: [
+    SubscribersModule,
     PostsModule,
     DatabaseModule,
     ConfigModule.forRoot({
