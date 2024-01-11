@@ -10,6 +10,7 @@ import User from '../../core/entities/user.entity';
 
 describe('The AuthenticationService', () => {
   let authenticationService: AuthenticationService;
+  let usersService: UsersService;
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       providers: [
@@ -30,6 +31,7 @@ describe('The AuthenticationService', () => {
       ],
     }).compile();
     authenticationService = await module.get(AuthenticationService);
+    usersService = await module.get(UsersService);
   });
   describe('when creating a cookie', () => {
     it('should return a string', () => {
